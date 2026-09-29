@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111b">
+  <meta name="description" content="A responsive smart home automation dashboard demonstration.">
+  <title>SmartHome | Automation System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-light" viewBox="0 0 24 24"><path d="M9 18h6m-5 4h4m-6-7a7 7 0 1 1 8 0c-1 .7-1 1.5-1 3h-6c0-1.5 0-2.3-1-3z"/></symbol>
+    <symbol id="i-fan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 10c-1-4-4-7-6-5-2 3 2 5 5 7M14 12c4-1 7 0 7 2 0 3-4 3-8 0m-2 0c0 4-2 7-4 6-3-2 0-5 3-8"/></symbol>
+    <symbol id="i-air" viewBox="0 0 24 24"><path d="M3 5h18v14H3zM7 9h10M7 13h3m4 0h3M7 16h10"/></symbol>
+    <symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="m8 22 4-4 4 4"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M5 8h12v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4zM17 10h2a2 2 0 0 1 0 4h-2M7 3v2m4-2v2m4-2v2"/></symbol>
+    <symbol id="i-speaker" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="3"/><circle cx="12" cy="14" r="3"/><circle cx="12" cy="7" r="1"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+    <symbol id="i-sprinkler" viewBox="0 0 24 24"><path d="M4 21h16M12 17V9m-4 8v-3m8 3v-3M8 10l-2-3m10 3 2-3m-6 2-1-4m-5 1-1-2m12 2 1-2"/></symbol>
+    <symbol id="i-washer" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M8 6h.01M12 6h.01M16 6h.01"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14 10 21 6v12l-7-4M3 7h11v10H3z"/><circle cx="8" cy="12" r="2"/></symbol>
+    <symbol id="i-room" viewBox="0 0 24 24"><path d="M3 21h18M5 21V4h14v17M9 8h2m2 0h2m-6 4h2m2 0h2m-6 9v-5h4v5"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="m13 2-3 9h7L9 22l2-9H4z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11zM12 8v4m0 4h.01"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.5-1.7-.7a8 8 0 0 1-1.7 1l-.3 1.8h-3l-.3-1.8a8 8 0 0 1-1.7-1l-1.7.7-1.4-2.5 1.4-1.1a7 7 0 0 1 0-2L5.7 12l1.4-2.5 1.7.7a8 8 0 0 1 1.7-1l.3-1.8h3l.3 1.8a8 8 0 0 1 1.7 1l1.7-.7 1.4 2.5-1.4 1.1a7 7 0 0 1-.1 1.9z" transform="translate(-1 -2)"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 13h4"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>
+    <symbol id="i-window" viewBox="0 0 24 24"><path d="M4 3h16v18H4zM12 3v18M4 12h16"/></symbol>
+  </svg>
+
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <a class="brand" href="#dashboard"><span class="brand-mark"><svg class="icon"><use href="#i-home"/></svg></span><span>SmartHome<small>HOME AUTOMATION</small></span></a>
+    <p class="nav-label">Workspace</p>
+    <nav class="nav-list" aria-label="Dashboard sections">
+      <a class="nav-link active" href="#dashboard"><svg class="icon"><use href="#i-grid"/></svg>Dashboard</a>
+      <a class="nav-link" href="#devices"><svg class="icon"><use href="#i-light"/></svg>Smart Devices</a>
+      <a class="nav-link" href="#cameras"><svg class="icon"><use href="#i-camera"/></svg>Security Cameras</a>
+      <a class="nav-link" href="#rooms"><svg class="icon"><use href="#i-room"/></svg>Rooms</a>
+      <a class="nav-link" href="#energy"><svg class="icon"><use href="#i-bolt"/></svg>Energy</a>
+      <a class="nav-link" href="#security"><svg class="icon"><use href="#i-shield"/></svg>Security</a>
+      <a class="nav-link" href="#notifications"><svg class="icon"><use href="#i-bell"/></svg>Notifications</a>
+      <a class="nav-link" href="#settings"><svg class="icon"><use href="#i-settings"/></svg>Settings</a>
+    </nav>
+    <div class="sidebar-spacer"></div>
+    <div class="home-state"><div><span class="status-dot"></span> System status</div><small>All systems operational</small></div>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar">
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button>
+      <div class="breadcrumb">Home <span>/</span> Overview</div>
+      <div class="topbar-right"><div class="clock"><time id="clockTime">--:--:--</time><span id="clockDate">Loading date</span></div><div class="profile"><div class="avatar" aria-hidden="true">JD</div><div><div class="profile-name">Jordan Davis</div><div class="profile-role">Home Owner · Administrator</div></div></div></div>
+    </header>
+
+    <main>
+      <section id="dashboard" aria-labelledby="welcomeTitle">
+        <div class="welcome-row"><div><p class="eyebrow">SMART HOME CONTROL CENTER</p><h1 id="welcomeTitle">Good Afternoon <span aria-hidden="true">&#128075;</span></h1><p class="welcome-copy">Welcome back to your smart home.</p></div><div class="date-chip"><svg class="icon"><use href="#i-calendar"/></svg><time id="fullDate">Your home, at a glance</time></div></div>
+        <div class="stats-grid" aria-label="Home statistics">
+          <article class="stat-card"><div class="stat-top"><span>Active devices</span><span class="stat-icon"><svg class="icon"><use href="#i-grid"/></svg></span></div><div class="stat-value"><span id="activeCount">7</span><span class="stat-unit">/ 10</span></div><div class="stat-note good" id="deviceCountNote">Devices currently running</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Home temperature</span><span class="stat-icon"><svg class="icon"><use href="#i-sun"/></svg></span></div><div class="stat-value"><span id="statTemp">24</span><span class="stat-unit">&#176;C</span></div><div class="stat-note">Comfort range · 18–25&#176;C</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Energy usage</span><span class="stat-icon"><svg class="icon"><use href="#i-bolt"/></svg></span></div><div class="stat-value">4.8<span class="stat-unit">kWh</span></div><div class="stat-note">Today · demo meter</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Security</span><span class="stat-icon"><svg class="icon"><use href="#i-shield"/></svg></span></div><div class="stat-value" id="securityStat">SECURE</div><div class="stat-note good" id="securityNote">No active alerts</div></article>
+        </div>
+      </section>
+
+      <section class="secure-banner" aria-label="Home security status"><span class="secure-icon"><svg class="icon"><use href="#i-shield"/></svg></span><div><p class="eyebrow">SECURITY STATUS</p><h2 id="secureBannerTitle">HOME SECURE</h2><span id="secureBannerCopy">Your home is locked and protected</span></div><span class="secure-pill"><span class="status-dot"></span><span id="securePillText">ALL CLEAR</span></span></section>
+
+      <section class="section" id="rooms" aria-labelledby="roomsTitle">
+        <div class="section-heading"><div><h2 class="section-title" id="roomsTitle">Rooms</h2><p class="section-subtitle">Home zones · sample hub inventory</p></div><a class="text-link" href="#devices">View devices <span aria-hidden="true">&#8594;</span></a></div>
+        <div class="room-grid">
+          <article class="room-card" data-room="Living Room" data-initial-active="2"><div class="room-top"><span class="room-icon"><svg class="icon"><use href="#i-room"/></svg></span><span class="room-tag">LIVING</span></div><h3>Living Room</h3><div class="room-metrics"><span><strong class="room-total">4</strong> devices</span><span><strong class="room-active">2</strong> active</span></div><div class="room-meta"><span>Temperature</span><strong>23&#176;C</strong></div><div class="room-progress"><span style="width:50%"></span></div><div class="room-state"><span class="status-dot"></span><span>Active</span></div></article>
+          <article class="room-card" data-room="Bedroom" data-initial-active="1"><div class="room-top"><span class="room-icon"><svg class="icon"><use href="#i-room"/></svg></span><span class="room-tag">REST</span></div><h3>Bedroom</h3><div class="room-metrics"><span><strong class="room-total">3</strong> devices</span><span><strong class="room-active">1</strong> active</span></div><div class="room-meta"><span>Temperature</span><strong>22&#176;C</strong></div><div class="room-progress"><span style="width:33%"></span></div><div class="room-state"><span class="status-dot"></span><span>Active</span></div></article>
+          <article class="room-card" data-room="Kitchen" data-initial-active="2"><div class="room-top"><span class="room-icon"><svg class="icon"><use href="#i-room"/></svg></span><span class="room-tag">KITCHEN</span></div><h3>Kitchen</h3><div class="room-metrics"><span><strong class="room-total">4</strong> devices</span><span><strong class="room-active">2</strong> active</span></div><div class="room-meta"><span>Temperature</span><strong>24&#176;C</strong></div><div class="room-progress"><span style="width:50%"></span></div><div class="room-state"><span class="status-dot"></span><span>Active</span></div></article>
+          <article class="room-card" data-room="Bathroom" data-initial-active="0"><div class="room-top"><span class="room-icon"><svg class="icon"><use href="#i-room"/></svg></span><span class="room-tag">BATH</span></div><h3>Bathroom</h3><div class="room-metrics"><span><strong class="room-total">2</strong> devices</span><span><strong class="room-active">0</strong> active</span></div><div class="room-meta"><span>Temperature</span><strong>21&#176;C</strong></div><div class="room-progress"><span style="width:0%"></span></div><div class="room-state idle"><span class="status-dot"></span><span>Idle</span></div></article>
+          <article class="room-card" data-room="Garden" data-initial-active="1"><div class="room-top"><span class="room-icon"><svg class="icon"><use href="#i-sprinkler"/></svg></span><span class="room-tag">OUTDOOR</span></div><h3>Garden</h3><div class="room-metrics"><span><strong class="room-total">2</strong> devices</span><span><strong class="room-active">1</strong> active</span></div><div class="room-meta"><span>Temperature</span><strong>20&#176;C</strong></div><div class="room-progress"><span style="width:50%"></span></div><div class="room-state"><span class="status-dot"></span><span>Active</span></div></article>
+        </div>
+      </section>
+
+      <div class="dashboard-grid">
+        <section class="panel" id="energy" aria-labelledby="energyTitle">
+          <div class="section-heading compact"><div><h2 class="section-title" id="energyTitle">Energy management</h2><p class="section-subtitle">Usage overview · simulated meter</p></div><span class="range-badge">LAST 7 DAYS</span></div>
+          <div class="energy-metrics"><div><span>Today's usage</span><strong>4.8 <small>kWh</small></strong></div><div><span>Weekly usage</span><strong>32.6 <small>kWh</small></strong></div><div><span>Estimated cost</span><strong><small class="currency">&#8377;</small>38.40</strong></div><div><span>Energy saved</span><strong class="energy-saved">18<small>%</small></strong></div></div>
+          <div class="chart-heading"><span>Daily consumption</span><span class="chart-legend"><i></i>Energy used (kWh)</span></div>
+          <div class="chart" id="energyChart" role="img" aria-label="Seven-day energy use chart"></div>
+        </section>
+        <section class="panel climate-panel" aria-labelledby="climateTitle">
+          <div class="section-heading compact"><div><h2 class="section-title" id="climateTitle">Climate control</h2><p class="section-subtitle">Living room · simulated sensor</p></div><span class="climate-symbol"><svg class="icon"><use href="#i-air"/></svg></span></div>
+          <div class="climate-layout"><div class="temp-dial"><div class="temp-reading"><span id="temperature">24</span>&#176;<small>TEMPERATURE</small></div></div><div class="temp-controls-wrap"><span class="muted-label">Target temperature</span><div class="temp-controls"><button class="control-btn" id="tempDown" type="button" aria-label="Decrease temperature"><svg class="icon"><use href="#i-minus"/></svg></button><button class="control-btn" id="tempUp" type="button" aria-label="Increase temperature"><svg class="icon"><use href="#i-plus"/></svg></button></div></div></div>
+          <div class="climate-data"><div><span>Humidity</span><strong>56%</strong></div><div><span>Air quality</span><strong class="good">Excellent</strong></div><div><span>Air conditioner</span><strong id="acStatus">ON</strong></div></div>
+          <label class="fan-control" for="fanSpeed"><span>Fan speed <strong id="fanSpeedValue">60%</strong></span><input id="fanSpeed" type="range" min="0" max="100" step="5" value="60"></label>
+        </section>
+      </div>
+
+      <section class="section" id="devices" aria-labelledby="devicesTitle">
+        <div class="section-heading"><div><h2 class="section-title" id="devicesTitle">Smart devices</h2><p class="section-subtitle"><span id="deviceSummary">7 of 10 devices on</span> · Select a switch to control</p></div><span class="range-badge">10 CONNECTED</span></div>
+        <div class="devices-grid" id="deviceGrid">
+          <article class="device-card" data-device="Living Room Light" data-room="Living Room" data-on="true" data-default-on="true" data-watts="60"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-light"/></svg></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Living Room Light"></button></div><h3>Living Room Light</h3><div class="device-room">Living Room</div><div class="device-meta"><span class="device-status">Currently ON</span><span>60 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+          <article class="device-card" data-device="Bedroom Light" data-room="Bedroom" data-on="false" data-default-on="false" data-watts="45"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-light"/></svg></span><button class="switch" type="button" role="switch" aria-checked="false" aria-label="Bedroom Light"></button></div><h3>Bedroom Light</h3><div class="device-room">Bedroom</div><div class="device-meta"><span class="device-status">Currently OFF</span><span>45 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+          <article class="device-card" data-device="Ceiling Fan" data-room="Living Room" data-on="true" data-default-on="true" data-watts="75"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-fan"/></svg></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Ceiling Fan"></button></div><h3>Ceiling Fan</h3><div class="device-room">Living Room</div><div class="device-meta"><span class="device-status">Currently ON</span><span>75 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+          <article class="device-card" data-device="Air Conditioner" data-room="Bedroom" data-on="true" data-default-on="true" data-watts="1200"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-air"/></svg></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Air Conditioner"></button></div><h3>Air Conditioner</h3><div class="device-room">Bedroom</div><div class="device-meta"><span class="device-status">Currently ON</span><span>1,200 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+          <article class="device-card" data-device="Smart TV" data-room="Living Room" data-on="false" data-default-on="false" data-watts="110"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-tv"/></svg></span><button class="switch" type="button" role="switch" aria-checked="false" aria-label="Smart TV"></button></div><h3>Smart TV</h3><div class="device-room">Living Room</div><div class="device-meta"><span class="device-status">Currently OFF</span><span>110 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+          <article class="device-card" data-device="Coffee Machine" data-room="Kitchen" data-on="true" data-default-on="true" data-watts="900"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-coffee"/></svg></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Coffee Machine"></button></div><h3>Coffee Machine</h3><div class="device-room">Kitchen</div><div class="device-meta"><span class="device-status">Currently ON</span><span>900 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+          <article class="device-card" data-device="Smart Speaker" data-room="Kitchen" data-on="true" data-default-on="true" data-watts="12"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-speaker"/></svg></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Smart Speaker"></button></div><h3>Smart Speaker</h3><div class="device-room">Kitchen</div><div class="device-meta"><span class="device-status">Currently ON</span><span>12 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+          <article class="device-card" data-device="Smart Door" data-room="Entry" data-on="true" data-default-on="true" data-watts="4"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-lock"/></svg></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Smart Door"></button></div><h3>Smart Door</h3><div class="device-room">Front Entry</div><div class="device-meta"><span class="device-status">Currently Locked</span><span>4 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+          <article class="device-card" data-device="Garden Sprinkler" data-room="Garden" data-on="true" data-default-on="true" data-watts="30"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-sprinkler"/></svg></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Garden Sprinkler"></button></div><h3>Garden Sprinkler</h3><div class="device-room">Garden</div><div class="device-meta"><span class="device-status">Currently ON</span><span>30 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+          <article class="device-card" data-device="Washing Machine" data-room="Bathroom" data-on="false" data-default-on="false" data-watts="500"><div class="device-top"><span class="device-icon"><svg class="icon"><use href="#i-washer"/></svg></span><button class="switch" type="button" role="switch" aria-checked="false" aria-label="Washing Machine"></button></div><h3>Washing Machine</h3><div class="device-room">Utility Room</div><div class="device-meta"><span class="device-status">Currently OFF</span><span>500 W</span></div><div class="device-updated">Updated <time class="last-updated">just now</time></div></article>
+        </div>
+      </section>
+
+      <section class="section" id="cameras" aria-labelledby="camerasTitle">
+        <div class="section-heading"><div><h2 class="section-title" id="camerasTitle">Security cameras</h2><p class="section-subtitle">Live simulated previews · no camera hardware connected</p></div><span class="status-text"><span class="status-dot"></span>4 CAMERAS ONLINE</span></div>
+        <div class="camera-grid">
+          <article class="camera-card" data-camera="Front Door Camera" data-location="FRONT DOOR" data-resolution="1080p" data-scene="front"><div class="camera-feed scene-front"><div class="feed-top"><span class="feed-tag"><i class="blink"></i>LIVE</span><span class="feed-tag"><i class="rec-dot"></i>REC</span></div><div class="feed-crosshair"></div><div class="feed-bottom"><span>FRONT DOOR · DEMO FEED</span><time class="camera-time">--:--:--</time></div></div><div class="camera-info"><div class="camera-title-row"><h3>Front Door Camera</h3><span class="online-badge"><i class="status-dot"></i>ONLINE</span></div><div class="camera-meta"><span>1080p HD</span><span>Motion Detection ON</span></div><button class="view-button" type="button">View Camera</button></div></article>
+          <article class="camera-card" data-camera="Living Room Camera" data-location="LIVING ROOM" data-resolution="1080p" data-scene="living"><div class="camera-feed scene-living"><div class="feed-top"><span class="feed-tag"><i class="blink"></i>LIVE</span><span class="feed-tag"><i class="rec-dot"></i>REC</span></div><div class="feed-crosshair"></div><div class="feed-bottom"><span>LIVING ROOM · DEMO FEED</span><time class="camera-time">--:--:--</time></div></div><div class="camera-info"><div class="camera-title-row"><h3>Living Room Camera</h3><span class="online-badge"><i class="status-dot"></i>ONLINE</span></div><div class="camera-meta"><span>1080p HD</span><span>Motion Detection ON</span></div><button class="view-button" type="button">View Camera</button></div></article>
+          <article class="camera-card" data-camera="Backyard Camera" data-location="BACKYARD" data-resolution="1080p" data-scene="backyard"><div class="camera-feed scene-backyard"><div class="feed-top"><span class="feed-tag"><i class="blink"></i>LIVE</span><span class="feed-tag"><i class="rec-dot"></i>REC</span></div><div class="feed-crosshair"></div><div class="feed-bottom"><span>BACKYARD · DEMO FEED</span><time class="camera-time">--:--:--</time></div></div><div class="camera-info"><div class="camera-title-row"><h3>Backyard Camera</h3><span class="online-badge"><i class="status-dot"></i>ONLINE</span></div><div class="camera-meta"><span>1080p HD</span><span>Motion Detection ON</span></div><button class="view-button" type="button">View Camera</button></div></article>
+          <article class="camera-card" data-camera="Garage Camera" data-location="GARAGE" data-resolution="1080p" data-scene="garage"><div class="camera-feed scene-garage"><div class="feed-top"><span class="feed-tag"><i class="blink"></i>LIVE</span><span class="feed-tag"><i class="rec-dot"></i>REC</span></div><div class="feed-crosshair"></div><div class="feed-bottom"><span>GARAGE · DEMO FEED</span><time class="camera-time">--:--:--</time></div></div><div class="camera-info"><div class="camera-title-row"><h3>Garage Camera</h3><span class="online-badge"><i class="status-dot"></i>ONLINE</span></div><div class="camera-meta"><span>1080p HD</span><span>Motion Detection ON</span></div><button class="view-button" type="button">View Camera</button></div></article>
+        </div>
+      </section>
+
+      <section class="section security-section" id="security" aria-labelledby="securityTitle">
+        <div class="section-heading"><div><h2 class="section-title" id="securityTitle">Security dashboard</h2><p class="section-subtitle">Protection overview · simulated sensors</p></div><span class="status-text" id="securityHeaderStatus"><span class="status-dot"></span>MONITORING</span></div>
+        <div class="security-grid">
+          <article class="security-item"><span class="security-icon"><svg class="icon"><use href="#i-lock"/></svg></span><span>Front door<strong id="doorSecurityStatus">Locked</strong></span></article>
+          <article class="security-item"><span class="security-icon"><svg class="icon"><use href="#i-camera"/></svg></span><span>Cameras<strong>4 Cameras Online</strong></span></article>
+          <article class="security-item"><span class="security-icon"><svg class="icon"><use href="#i-alert"/></svg></span><span>Alarm<strong class="good">No Alerts</strong></span></article>
+          <article class="security-item"><span class="security-icon"><svg class="icon"><use href="#i-activity"/></svg></span><span>Motion detection<strong class="good" id="motionSecurityStatus">Active</strong></span></article>
+          <article class="security-item"><span class="security-icon"><svg class="icon"><use href="#i-window"/></svg></span><span>Windows<strong class="good">All Secure</strong></span></article>
+          <article class="security-item motion-card"><span class="security-icon"><svg class="icon"><use href="#i-activity"/></svg></span><span>Motion Detection<strong id="motionSummary">ACTIVE · DEMO</strong><small>Random, harmless sample events</small></span></article>
+        </div>
+      </section>
+
+      <section class="section" id="notifications" aria-labelledby="notificationsTitle">
+        <div class="section-heading"><div><h2 class="section-title" id="notificationsTitle">Notifications</h2><p class="section-subtitle">Recent updates from your home</p></div><div class="notification-actions"><button class="quiet-button" id="markRead" type="button">Mark all as read</button><button class="quiet-button danger-button" id="clearNotifications" type="button">Clear notifications</button></div></div>
+        <div class="panel notification-panel"><div class="notification-list" id="notificationList" aria-live="polite" aria-relevant="additions text"></div><p class="empty-state" id="emptyNotifications" hidden>No notifications yet.</p></div>
+      </section>
+
+      <section class="section" id="settings" aria-labelledby="settingsTitle">
+        <div class="section-heading"><div><h2 class="section-title" id="settingsTitle">Settings</h2><p class="section-subtitle">Dashboard preferences and system health</p></div></div>
+        <div class="settings-layout"><div class="panel settings-list">
+          <div class="setting-row"><span>Dark mode<small>Use the dark dashboard theme</small></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Dark mode" data-setting="darkMode"></button></div>
+          <div class="setting-row"><span>Notifications<small>Show activity alerts and toasts</small></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Notifications" data-setting="notifications"></button></div>
+          <div class="setting-row"><span>Motion detection<small>Simulate camera motion events</small></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Motion detection" data-setting="motion"></button></div>
+          <div class="setting-row"><span>Auto security<small>Automatically secure the home</small></span><button class="switch" type="button" role="switch" aria-checked="true" aria-label="Auto security" data-setting="autoSecurity"></button></div>
+        </div><div class="panel system-card"><div class="system-main"><span class="status-dot"></span><span>All Systems Operational</span></div><p>Dashboard and local demo services running normally.</p><span class="system-detail">LOCAL DEMO · NO HARDWARE LINKED</span></div></div>
+      </section>
+
+      <footer class="site-footer"><strong>SmartHome Automation System</strong><span>Computer System Project · &#169; 2026 SmartHome</span><p>Demo Mode: Device, sensor and camera data shown on this website are simulated.</p></footer>
+    </main>
+  </div>
+
+  <div class="camera-modal" id="cameraModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog"><header class="modal-header"><div><p class="eyebrow">SMART HOME · CCTV VIEWER</p><h2 id="modalTitle">FRONT DOOR CAMERA</h2></div><button class="close-button" id="closeModal" type="button" aria-label="Close camera viewer"><svg class="icon"><use href="#i-close"/></svg></button></header><div class="camera-feed modal-feed scene-front" id="modalFeed"><div class="feed-top"><span class="feed-tag"><i class="blink"></i>LIVE</span><span class="feed-tag"><i class="rec-dot"></i>REC</span></div><div class="feed-crosshair"></div><div class="feed-bottom"><span id="modalLocation">FRONT DOOR · DEMO FEED</span><time class="camera-time">--:--:--</time></div></div><div class="modal-details"><span class="status-text"><span class="status-dot"></span>ONLINE</span><span>1080p HD</span><span>Recording: <strong>Active · simulated</strong></span><span>Motion Detection: <strong id="modalMotion">ON · simulated</strong></span></div><p class="modal-notice">Simulated preview only. No real camera is connected.</p><footer class="modal-footer"><button class="primary-button" id="closeCamera" type="button">Close Camera</button></footer></div>
+  </div>
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+  <script src="script.js" defer></script>
+</body>
+</html>
